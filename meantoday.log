@@ -1,0 +1,227 @@
+var a;
+undefined
+typeof a;
+"undefined"
+a = 100;
+100
+typeof a;
+"number"
+a= 100.20;
+100.2
+typeof a;
+"number"
+a = 10000000;
+10000000
+typeof a;
+"number"
+a = 100 /0;
+Infinity
+typeof a;
+"number"
+a= 100 - "one";
+NaN
+typeof a;
+"number"
+isNaN(a)?0:a;
+0
+a = 100/0;
+Infinity
+isFinite(a)?a:0;
+0
+a= 'Amit';
+"Amit"
+typeof a;
+"string"
+a= "Amit";
+"Amit"
+a = "Let's Do It";
+"Let's Do It"
+a= `hsfkjdjkghjkdfhjkgjkdgfhjkdhkjgh
+gsdhkjghdjk
+gfsdhkjghk`;
+"hsfkjdjkghjkdfhjkgjkdgfhjkdhkjgh
+gsdhkjghdjk
+gfsdhkjghk"
+var x= 100;
+undefined
+var y = 200;
+undefined
+"X is "+x+" and  Y is "+y;
+"X is 100 and  Y is 200"
+`X is ${x} and Y is ${y}`;
+"X is 100 and Y is 200"
+var name = "Amit";
+undefined
+typeof name;
+"string"
+name.length;
+4
+var att = true;
+undefined
+typeof att;
+"boolean"
+10 + true ;
+11
+p =10000;
+10000
+typeof p;
+"number"
+function show(){
+console.log(" I am Show ");
+}
+undefined
+function show(){
+h = 1000;
+console.log(" I am Show ");
+}
+undefined
+h;
+VM693:1 Uncaught ReferenceError: h is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM693:1
+show();
+VM686:3  I am Show 
+undefined
+h;
+1000
+function show(){
+var h1 = 1000;
+var gg = 2000;
+console.log(" I am Show ",h1,gg);
+}
+undefined
+show();
+VM777:4  I am Show  1000 2000
+undefined
+h1;
+VM797:1 Uncaught ReferenceError: h1 is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM797:1
+function show(){
+// var v;
+console.log("Before If ",v);
+var h1 = 1000;
+var gg = 2000;
+if(10>2){
+var v = 88;   // v  = 88;
+}
+console.log(" I am Show ",h1,gg);
+console.log("After If ",v);
+}
+undefined
+show();
+VM921:3 Before If  undefined
+VM921:9  I am Show  1000 2000
+VM921:10 After If  88
+undefined
+function show(){
+
+console.log("Before If ",v);
+var h1 = 1000;
+var gg = 2000;
+if(10>2){
+let v = 88;   
+console.log("Inside If ",v);
+}
+console.log(" I am Show ",h1,gg);
+console.log("After If ",v);
+}
+undefined
+show();
+VM1014:3 Uncaught ReferenceError: v is not defined
+    at show (<anonymous>:3:26)
+    at <anonymous>:1:1
+show @ VM1014:3
+(anonymous) @ VM1026:1
+function show(){
+
+//console.log("Before If ",v);
+var h1 = 1000;
+var gg = 2000;
+if(10>2){
+let v = 88;   
+console.log("Inside If ",v);
+}
+console.log(" I am Show ",h1,gg);
+//console.log("After If ",v);
+}
+undefined
+show();
+VM1033:8 Inside If  88
+VM1033:10  I am Show  1000 2000
+undefined
+var fruit = "orange";
+undefined
+var fruits = ["apple","orange","mango"];
+undefined
+typeof fruits;
+"object"
+fruits instanceof Array;
+true
+typeof Array;
+"function"
+var obj = {};
+undefined
+typeof obj;
+"object"
+obj instanceof Object;
+true
+fruits instanceof Array;
+true
+fruits instanceof Object;
+true
+var obj = {}; // Object Literal
+undefined
+obj.id=1001;
+1001
+var y = [1001,"Ram",true];
+undefined
+y[1];
+"Ram"
+obj.id;
+1001
+var obj2 = {id:1001,name:'Ram'};
+undefined
+obj2.name;
+"Ram"
+obj2.salary = 9999;
+9999
+obj2;
+{id: 1001, name: "Ram", salary: 9999}
+delete obj2.salary;
+true
+obj2;
+{id: 1001, name: "Ram"}
+const userOperations = {
+add(){
+}
+}
+var orderOperations ={
+add(){
+}
+}
+undefined
+const PI  = 3.14;
+undefined
+PI++;
+VM1677:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:3
+(anonymous) @ VM1677:1
+const arr = [10,20,30];
+undefined
+arr.push(10000);
+4
+arr;
+(4) [10, 20, 30, 10000]
+arr = [999,222;]
+VM1764:1 Uncaught SyntaxError: Unexpected token ;
+arr = [999,222];
+VM1769:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:5
+(anonymous) @ VM1769:1
+const obj3 = {};
+undefined
+obj3.id = 9999;
+9999
+obj3;
+{id: 9999}
