@@ -1,0 +1,147 @@
+var a= 10;
+undefined
+typeof a;
+"number"
+var b = new Number(1000);
+undefined
+var q  = "Hello";
+undefined
+typeof q;
+"string"
+var w1 = new String("Hello");
+undefined
+var t= "Hello";
+undefined
+typeof t;
+"string"
+typeof w1;
+"object"
+t.toUpperCase();
+"HELLO"
+var x = new Number(10);
+undefined
+typeof x;
+"object"
+x;
+Number {10}
+x++;
+10
+x;
+11
+true + true
+2
+var q = 100;
+undefined
+var e = "Two";
+undefined
+ar g =q - e;
+VM436:1 Uncaught SyntaxError: Unexpected identifier
+\
+VM439:1 Uncaught SyntaxError: Invalid or unexpected token
+var g =q - e;
+undefined
+g;
+NaN
+isNaN(g);
+true
+isNaN(g)?0:g;
+0
+10 + "10";
+"1010"
+10 + parseInt("10");
+20
+parseFloat("1090.20");
+1090.2
+var t = 10/0;
+undefined
+t;
+Infinity
+isFinite(t)?t:0
+0
+typeof t;
+"number"
+t;
+Infinity
+function add(){
+console.log("Add ");
+}
+undefined
+add();
+VM645:2 Add 
+undefined
+add(10,200);
+VM645:2 Add 
+undefined
+add("hello",true, 10);
+VM645:2 Add 
+undefined
+console.log("A is ");
+VM749:1 A is 
+undefined
+console.log("A is ",10);
+VM760:1 A is  10
+undefined
+console.log(10," is a ");
+VM800:1 10 " is a "
+undefined
+console.log("A is ",10,"B is ",20);
+VM855:1 A is  10 B is  20
+undefined
+var add = function(){
+console.log(" I am Function Expression or Anonymous Function");
+}
+undefined
+var ee = 100;
+undefined
+typeof add;
+"function"
+add();
+VM1001:2  I am Function Expression or Anonymous Function
+undefined
+function calc(){
+function add(){
+
+}
+}
+undefined
+function calc(){
+var add = function(x,y){
+	return x + y;
+}
+var sub = function(x,y){
+	return x - y;
+}
+console.log(add(10,20));
+console.log(sub(100,200));
+}
+undefined
+calc();
+VM1311:8 30
+VM1311:9 -100
+undefined
+function calc(){
+var add = function(x,y){
+	return x + y;
+}
+var sub = function(x,y){
+	return x - y;
+}
+return [add,sub];
+//console.log(add(10,20));
+//console.log(sub(100,200));
+}
+undefined
+var e= calc();
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1351:2[[Scopes]]: Scopes[1]1: ƒ (x,y)length: 2__proto__: Array(0)
+e[0](1000,2000)
+3000
+var y = e[0];
+undefined
+y;
+ƒ (x,y){
+	return x + y;
+}
+y(10,20);
+30
