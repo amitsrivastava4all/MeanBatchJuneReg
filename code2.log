@@ -1,0 +1,219 @@
+function show(x,y){
+return x + y;
+}
+undefined
+typeof show;
+"function"
+show(10,20);
+30
+show();
+NaN
+undefined + undefined;
+NaN
+var t ;
+undefined
+t =100;
+100
+var p;
+undefined
+typeof p;
+"undefined"
+typeof t;
+"number"
+null + null;
+0
+null + undefined;
+NaN
+p;
+undefined
+if(!p){
+p=0;
+}
+0
+if(typeof p =="undefined"){
+p=0;
+}
+undefined
+p;
+0
+p?100:0;
+0
+p;
+0
+p=undefined;
+undefined
+p?100:0;
+0
+p=NaN;
+NaN
+p?100:0;
+0
+p=1;
+1
+p?100:0;
+100
+function show(x,y){
+return x + y;
+}
+undefined
+show();
+NaN
+function show(x,y){
+x = x || 0;
+y = y || 0;
+return x + y;
+}
+undefined
+show();
+0
+show(10);
+10
+show(10,20);
+30
+function show(x=0,y=0){
+return x + y;
+}
+undefined
+show();
+0
+show(1000,2000);
+3000
+function add(){
+console.log("N Args ");
+}
+undefined
+add();
+VM833:2 N Args 
+undefined
+add(10,20,30);
+VM833:2 N Args 
+undefined
+add(10,"Hello",true,20);
+VM833:2 N Args 
+undefined
+add;
+ƒ add(){
+console.log("N Args ");
+}
+console.dir(add);
+VM954:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM833:1[[Scopes]]: Scopes[1]
+undefined
+function add(){
+console.log("N Args ",arguments.length);
+}
+undefined
+add();
+VM1013:2 N Args  0
+undefined
+add(10,20);
+VM1013:2 N Args  2
+undefined
+add(10,20,30,40);
+VM1013:2 N Args  4
+undefined
+function add(){
+var sum = 0;
+//console.log("N Args ",arguments.length);
+for(let i = 0; i<arguments.length; i++){
+sum+=arguments[i];
+}
+return sum;
+}
+undefined
+add();
+0
+add(10,20);
+30
+add(1,2,3,4,5,6);
+21
+function add(...args){
+var  sum= 0;
+for(let a of args){
+sum+=a;
+}
+return sum;
+}
+undefined
+add(1,2,3,4,5,6,7);
+28
+add();
+0
+var e = [10,20,30,40,50];
+undefined
+var e2 = [1,2,3,4,5];
+undefined
+var e3 = [e,e2];
+undefined
+e3;
+(2) [Array(5), Array(5)]0: (5) [10, 20, 30, 40, 50]1: (5) [1, 2, 3, 4, 5]length: 2__proto__: Array(0)
+var e3 = [...e,...e2];
+undefined
+e3;
+(10) [10, 20, 30, 40, 50, 1, 2, 3, 4, 5]
+e;
+(5) [10, 20, 30, 40, 50]
+e[0] = 1000000;
+1000000
+e;
+(5) [1000000, 20, 30, 40, 50]
+e3;
+(10) [10, 20, 30, 40, 50, 1, 2, 3, 4, 5]
+var obj = {"id":1001, name:"Ram",salary:99999};
+undefined
+obj["name"];
+"Ram"
+var temp = {"delhi":31, "mumbai":29};
+undefined
+temp["delhi"];
+31
+temp.delhi;
+31
+e;
+(5) [1000000, 20, 30, 40, 50]
+var m = [...e];
+undefined
+m;
+(5) [1000000, 20, 30, 40, 50]
+var t1 = {...obj,...temp};
+undefined
+t1;
+{id: 1001, name: "Ram", salary: 99999, delhi: 31, mumbai: 29}
+e;
+(5) [1000000, 20, 30, 40, 50]
+var w = e[0];
+undefined
+w;
+1000000
+var [r,,r2,r3] = e;
+undefined
+e;
+(5) [1000000, 20, 30, 40, 50]
+r;
+1000000
+r2;
+30
+r3;
+40
+obj;
+{id: 1001, name: "Ram", salary: 99999}
+var t = obj.id;
+undefined
+var {id,name} = obj;
+undefined
+id;
+1001
+name;
+"Ram"
+function printIt(obj2){
+console.log("Obj ",obj2.id , obj2.name);
+}
+undefined
+printIt(obj);
+VM2127:2 Obj  1001 Ram
+undefined
+function printIt({id,name}){
+console.log("Obj ",id , name);
+}
+printIt(obj);
+VM2228:2 Obj  1001 Ram
+undefined
