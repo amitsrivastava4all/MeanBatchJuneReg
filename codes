@@ -1,0 +1,125 @@
+var add = function(){
+console.log(" I am Add Function Expression ");
+}
+var obj = {
+id:1001,
+name:'Ram',
+add:function(){
+console.log("Obj Add ");
+}
+};
+var t = 1000;
+var obj2 = {
+t,
+//add:function(){}
+add(){
+}
+}
+obj2.add();
+obj2.t;
+function calc(){
+var add = function(x,y){
+	return x + y;
+}
+var sub = function(x,y){
+    return x - y;
+}
+return  [add,sub];
+}
+var z = calc();
+z;
+z[0](100,200);
+z[1](100,200);
+calc()[0](100,200);
+function calc(z){
+var p =1000;
+var add = function(x,y){
+	return x + y + z  + p;
+}
+var sub = function(x,y){
+    return x - y - z - p;
+}
+return  [add,sub];
+}
+var l = calc(10000);
+l;
+l[0](100,200);
+disp();
+function disp(){
+console.log("Disp Call ");
+}
+
+
+output();
+var output = function(){
+console.log("Output call ");
+}
+function calc(z){
+var p =1000;
+var add = function(x,y){
+	return x + y + z  + p;
+}
+var sub = function(x,y){
+    return x - y - z - p;
+}
+return  [add,sub];
+}
+function calc(z){
+var p =1000;
+var add = function add(x,y){
+	return x + y + z  + p;
+}
+var sub = function sub(x,y){
+    return x - y - z - p;
+}
+return  [add,sub];
+}
+var d = calc(100);
+d;
+function calc(z){
+var p =1000;
+var add = function (x,y){
+	return x + y + z  + p;
+}
+var sub = function (x,y){
+    return x - y - z - p;
+}
+//return  {add,sub};
+//return {"add":add,"sub":sub};
+return {"addition":add,"subtract":sub};
+}
+var e = calc(100);
+e;
+e.addition(10,20);
+var add = (x,y)=>x+y;
+typeof add;
+add(100,200);
+var add = (x,y)=>{
+x=x-y;
+return x+y;
+};
+add(10,20);
+function loop(fn){
+for(let i = 1; i<=10; i++){
+console.log(fn(i));
+}
+}
+function evenOdd(num){
+return num%2==0?`Even No ${num}`:`Odd No ${num}`;
+}
+var evenodd =(num)=>num%2==0?`Even No ${num}`:`Odd No ${num}`;
+var evenodd =num=>num%2==0?`Even No ${num}`:`Odd No ${num}`;
+loop(num=>5*num);
+loop(num=>num**3);
+
+var arr = [1,2,3];
+typeof Array;
+arr instanceof Array;
+for(let i = 0 ; i<arr.length; i++){
+console.log(` Arr ${arr[i]}`);
+}
+for(let a of arr){
+console.log(a);
+}
+arr.forEach(ele=>console.log(`Arr is ${ele}`));
+arr.forEach((ele,i)=>console.log(`Arr is ${ele} Index ${i}`));
