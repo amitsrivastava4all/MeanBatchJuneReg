@@ -1,0 +1,207 @@
+function add(x, y){
+return x + y;
+}
+undefined
+var add = (x,y)=>x+y;
+undefined
+var arr = [1,10,2,12,22,9];
+undefined
+for(let i = 0 ; i<arr.length; i++){
+console.log(arr[i]);
+}
+VM232:2 1
+VM232:2 10
+VM232:2 2
+VM232:2 12
+VM232:2 22
+VM232:2 9
+undefined
+for(let a of arr){
+console.log(a);
+}
+VM282:2 1
+VM282:2 10
+VM282:2 2
+VM282:2 12
+VM282:2 22
+VM282:2 9
+undefined
+function printIt(ele){
+console.log("Data is ",ele);
+}
+arr.forEach(printIt);
+VM408:2 Data is  1
+VM408:2 Data is  10
+VM408:2 Data is  2
+VM408:2 Data is  12
+VM408:2 Data is  22
+VM408:2 Data is  9
+undefined
+function printIt(ele){
+console.log("Data is ",ele);
+}
+function forEach(fn){
+for(let i = 1; i<=10; i++){
+fn(i);
+}
+}
+forEach(printIt);
+VM530:2 Data is  1
+VM530:2 Data is  2
+VM530:2 Data is  3
+VM530:2 Data is  4
+VM530:2 Data is  5
+VM530:2 Data is  6
+VM530:2 Data is  7
+VM530:2 Data is  8
+VM530:2 Data is  9
+VM530:2 Data is  10
+undefined
+function printIt(ele){
+console.log("Data is ",ele);
+}
+arr.forEach(printIt);
+VM546:2 Data is  1
+VM546:2 Data is  10
+VM546:2 Data is  2
+VM546:2 Data is  12
+VM546:2 Data is  22
+VM546:2 Data is  9
+undefined
+arr.forEach(ele=>console.log('My Data is ',ele));
+VM627:1 My Data is  1
+VM627:1 My Data is  10
+VM627:1 My Data is  2
+VM627:1 My Data is  12
+VM627:1 My Data is  22
+VM627:1 My Data is  9
+undefined
+arr.forEach(ele=>console.log('My Data is ',ele));
+VM661:1 My Data is  1
+VM661:1 My Data is  10
+VM661:1 My Data is  2
+VM661:1 My Data is  12
+VM661:1 My Data is  22
+VM661:1 My Data is  9
+undefined
+arr;
+(6) [1, 10, 2, 12, 22, 9]
+arr.find(ele=>ele==2);
+2
+arr.find(ele=>ele==20000);
+undefined
+arr.findIndex(ele=>ele==2);
+2
+arr;
+(6) [1, 10, 2, 12, 22, 9]
+arr.findIndex(ele=>ele==10);
+1
+arr;
+(6) [1, 10, 2, 12, 22, 9]
+arr.splice(1);
+(5) [10, 2, 12, 22, 9]
+arr;
+[1]
+var arr = [1,10,2,12,22,9];
+undefined
+arr.splice(0);
+(6) [1, 10, 2, 12, 22, 9]
+arr;
+[]
+var arr = [1,10,2,12,22,9];
+undefined
+arr.splice(1,1);
+[10]
+arr;
+(5) [1, 2, 12, 22, 9]
+arr.findIndex(ele=>ele==10);
+-1
+arr.splice(arr.findIndex(ele=>ele==2),1);
+[2]
+arr;
+(4) [1, 12, 22, 9]
+arr[0]=1000;
+1000
+var index = arr.findIndex(ele=>ele==20000);
+index>=0?arr.splice(index,1):"No Record Found";
+"No Record Found"
+var index = arr.findIndex(ele=>ele==12);
+index>=0?arr.splice(index,1):"No Record Found";
+[12]
+arr;
+(3) [1000, 22, 9]
+arr = [10,20,10,10,90,10,100];
+(7) [10, 20, 10, 10, 90, 10, 100]
+arr.find(ele=>ele==10);
+10
+arr.findIndex(ele=>ele==10);
+0
+arr.filter(ele=>ele==10);
+(4) [10, 10, 10, 10]
+var sub = arr.filter(ele=>ele>=20);
+undefined
+sub;
+(3) [20, 90, 100]
+sub.forEach(e=>console.log(e));
+VM1504:1 20
+VM1504:1 90
+VM1504:1 100
+undefined
+arr;
+(7) [10, 20, 10, 10, 90, 10, 100]
+var t = arr.filter(y=>true);
+undefined
+t;
+(7) [10, 20, 10, 10, 90, 10, 100]
+var t = arr.filter(y=>1==1);
+undefined
+t;
+(7) [10, 20, 10, 10, 90, 10, 100]
+function add(a,b){
+return a + b;
+}
+undefined
+add();
+NaN
+function add(a,b){
+if(a && b){
+return a + b;
+}
+return 0;
+
+}
+undefined
+add();
+0
+arr;
+(7) [10, 20, 10, 10, 90, 10, 100]
+arr.filter(ele=>ele==10);
+(4) [10, 10, 10, 10]
+arr.filter(ele=>ele!=10);
+(3) [20, 90, 100]
+arr =arr.filter(ele=>ele!=10);
+(3) [20, 90, 100]
+arr;
+(3) [20, 90, 100]
+arr = [10,20,10,10,90,10,100];
+(7) [10, 20, 10, 10, 90, 10, 100]
+arr.filter(ele=>ele==10).length;
+4
+arr;
+(7) [10, 20, 10, 10, 90, 10, 100]
+arr.push(1000);
+8
+arr;
+(8) [10, 20, 10, 10, 90, 10, 100, 1000]
+var tt =arr.map(y=>y**3);
+undefined
+tt;
+(8) [1000, 8000, 1000, 1000, 729000, 1000, 1000000, 1000000000]
+var t1 = arr.map(y=>y);
+undefined
+t1;
+(8) [10, 20, 10, 10, 90, 10, 100, 1000]
+var t1 = arr.map(y=>"$"+y+".00");
+undefined
+t1;
+(8) ["$10.00", "$20.00", "$10.00", "$10.00", "$90.00", "$10.00", "$100.00", "$1000.00"]
