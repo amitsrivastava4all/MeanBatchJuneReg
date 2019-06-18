@@ -1,0 +1,86 @@
+var arr = [90,10,2,11,99,100];
+undefined
+arr.sort((a,b)=>a-b);
+(6) [2, 10, 11, 90, 99, 100]
+arr.sort((a,b)=>b-a);
+(6) [100, 99, 90, 11, 10, 2]
+var names = ["ram","amit","anil","rajesh","ajay"];
+undefined
+"amit".localeCompare("ram");
+-1
+"amit".localeCompare("ajay");
+1
+"amit".localeCompare("amit");
+0
+names;
+(5) ["ram", "amit", "anil", "rajesh", "ajay"]
+names.sort((a,b)=>a.localeCompare(b));
+(5) ["ajay", "amit", "anil", "rajesh", "ram"]
+names.sort((a,b)=>b.localeCompare(a));
+(5) ["ram", "rajesh", "anil", "amit", "ajay"]
+var prices = [90,88,66,44,56,100];
+undefined
+prices.reduce((acc,ele)=>acc+=ele,acc=0);
+444
+prices.reduce((acc,ele)=>{
+if(ele>60){
+acc+=ele
+}
+return acc;
+},acc=0);
+344
+var prices = [90,88,66,44,56,100];
+undefined
+prices.reduce((acc,ele)=>{
+if(ele>60){
+acc.push(ele);
+}
+return acc;
+},acc=[]);
+(4) [90, 88, 66, 100]
+var obj = {};
+undefined
+typeof obj;
+"object"
+obj instanceof Object;
+true
+price;
+VM882:1 Uncaught ReferenceError: price is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM882:1
+prices;
+(6) [90, 88, 66, 44, 56, 100]
+typeof prices;
+"object"
+prices instanceof Array;
+true
+var obj  = {id:1001, name:'Ram', salary:9000};
+undefined
+obj.id;
+1001
+var math = {
+add(){
+},
+sub(){
+}
+
+}
+undefined
+math.add();
+undefined
+var obj2 = {id:1002, name:'Shyam',salary:9999};
+undefined
+var cartOperartions = {
+add(){
+},
+delete(){
+},
+search(){
+},
+update(){
+}
+}
+undefined
+function Cart(id, name, qt, price){
+}
+undefined
