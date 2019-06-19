@@ -1,0 +1,280 @@
+var obj = {id:1001, name:'Ram',salary:9000};
+undefined
+typeof obj;
+"object"
+obj instanceof Object;
+true
+function createEmployee(id , name, salary){
+var obj  = {};
+obj.id = id;
+obj.name = name;
+obj.salary = salary;
+return obj;
+}
+var ram = createEmployee(1001, "Ram",9000);
+var shyam = createEmployee(1002, "Shyam",2000);
+undefined
+ram;
+{id: 1001, name: "Ram", salary: 9000}
+shyam;
+{id: 1002, name: "Shyam", salary: 2000}
+function createCustomer(id , name, balance,address){
+var obj  = {}; // Common code
+obj.id = id;
+obj.name = name;
+obj.balance = balance;
+obj.address = address;
+return obj; // Common code
+}
+var mike = createCustomer(1, "Mike",900,"USA");
+
+undefined
+ram;
+{id: 1001, name: "Ram", salary: 9000}
+mike;
+{id: 1, name: "Mike", balance: 900, address: "USA"}
+ram instanceof createEmployee;
+false
+ram instanceof Object;
+true
+mike instanceof createCustomer;
+false
+mike instanceof Object;
+true
+function Employee(id , name , salary){
+//var obj  = {};
+//var this = {}; Implict
+this.id = id;
+this.name = name;
+this.salary = salary;
+//return obj;  return this; Implict
+}
+var ram = new Employee(1001, "Ram",90000);
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 90000}
+ram instanceof Employee;
+true
+ram instanceof Object;
+true
+function createEmployee(id , name, salary){
+var obj  = {};
+console.log("This is ",this);
+obj.id = id;
+obj.name = name;
+obj.salary = salary;
+return obj;
+}
+var ram = window.createEmployee(1001, "Ram",9000);
+var shyam = createEmployee(1002, "Shyam",2000);
+VM1015:3 This is  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+VM1015:3 This is  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+function Employee(id , name , salary){
+//var obj  = {};
+//var this = {}; Implict
+this.id = id;
+this.name = name;
+this.salary = salary;
+//return obj;  return this; Implict
+}
+var ram = new Employee(1001, "Ram",90000);
+undefined
+function Employee(id , name , salary){
+//var obj  = {};
+//var this = {}; Implict
+this.id = id;
+this.name = name;
+this.salary = salary;
+this.print= function(){
+console.log(` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`);
+}
+//return obj;  return this; Implict
+}
+var ram = new Employee(1001, "Ram",90000);
+var shyam = new Employee(1002, "Shyam",70000);
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 90000, print: ƒ}
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 70000, print: ƒ}
+ram.print();
+VM1152:8  Id is 1001 Name is Ram
+Salary is 90000
+undefined
+shyam.print();
+VM1152:8  Id is 1002 Name is Shyam
+Salary is 70000
+undefined
+function Employee(id , name , salary){
+//var obj  = {};
+//var this = {}; Implict
+this.id = id;
+this.name = name;
+this.salary = salary;
+/*this.print= function(){
+console.log(` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`);
+}*/
+//return obj;  return this; Implict
+}
+var ram = new Employee(1001, "Ram",90000);
+var shyam = new Employee(1002, "Shyam",70000);
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 90000}
+Employee.prototype.print=function(){
+console.log(` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`);
+}
+ƒ (){
+console.log(` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`);
+}
+ram;
+Employee {id: 1001, name: "Ram", salary: 90000}id: 1001name: "Ram"salary: 90000__proto__: print: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 70000}
+ram.print();
+VM1270:2  Id is 1001 Name is Ram
+Salary is 90000
+undefined
+shyam.print();
+VM1270:2  Id is 1002 Name is Shyam
+Salary is 70000
+undefined
+function Employee(id , name , salary){
+//var obj  = {};
+//var this = {}; Implict
+this.id = id;
+this.name = name;
+this.salary = salary;
+/*this.print= function(){
+console.log(` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`);
+}*/
+//return obj;  return this; Implict
+}
+
+var ram = new Employee(1001, "Ram",90000);
+var shyam = new Employee(1002, "Shyam",70000);
+undefined
+ram.toString();
+"[object Object]"
+console.log("Ram is "+ram);
+VM1417:1 Ram is [object Object]
+undefined
+var x= 100;
+undefined
+console.log("x is "+x);
+VM1469:1 x is 100
+undefined
+Employee.prototype.toString=function(){
+	return ` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`;
+}
+ƒ (){
+	return ` Id is ${this.id} Name is ${this.name}
+Salary is ${this.salary}`;
+}
+Employee.prototype;
+{toString: ƒ, constructor: ƒ}toString: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: Object
+ram.toString();
+" Id is 1001 Name is Ram
+Salary is 90000"
+console.log("Ram is "+ram);
+VM1581:1 Ram is  Id is 1001 Name is Ram
+Salary is 90000
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 90000}
+console.dir(ram);
+VM1652:1 Employeeid: 1001name: "Ram"salary: 90000__proto__: ObjecttoString: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: Object
+undefined
+console.dir(Employee.prototype);
+VM1689:1 ObjecttoString: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+undefined
+function Person(age){
+this.age = age;
+}
+Person.prototype.printAge = function(){
+console.log("Age is "+this.age;
+}
+VM1905:5 Uncaught SyntaxError: missing ) after argument list
+function Person(age){
+this.age = age;
+}
+Person.prototype.printAge = function(){
+console.log("Age is "+this.age);
+}
+ƒ (){
+console.log("Age is "+this.age);
+}
+Employee.prototype;
+{toString: ƒ, constructor: ƒ}toString: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+Employee.prototype.__proto__=Person;
+ƒ Person(age){
+this.age = age;
+}
+Employee.prototype;
+Function {toString: ƒ, constructor: ƒ}toString: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: ƒ Person(age)arguments: nullcaller: nulllength: 1name: "Person"prototype: {printAge: ƒ, constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM1912:1[[Scopes]]: Scopes[1]
+Employee.prototype.__proto__=Person.prototype;
+{printAge: ƒ, constructor: ƒ}
+Employee.prototype;
+Person {toString: ƒ, constructor: ƒ}toString: ƒ ()constructor: ƒ Employee(id , name , salary)__proto__: printAge: ƒ ()constructor: ƒ Person(age)__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+function show(){
+console.log("I am this ",this);
+}
+undefined
+show();  // window.show();
+VM2068:2 I am this  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+var obj = new show();
+VM2068:2 I am this  show {}
+undefined
+typeof obj;
+"object"
+obj instanceof show;
+true
+console.dir(show);
+VM2176:1 ƒ show()arguments: nullcaller: nulllength: 0name: "show"prototype: {constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM2068:1[[Scopes]]: Scopes[1]
+undefined
+show;
+ƒ show(){
+console.log("I am this ",this);
+}
+console.dir(show.prototype);
+VM2229:1 Objectconstructor: ƒ show()__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+undefined
+class Customer{
+constructor(id , name, balance){
+this.id = id;
+this.name = name;
+this.balance = balance;
+//this.print=function(){}
+}
+print(){
+}
+}
+undefined
+class PersonA{
+constructor(age){
+ this.age = age;
+}
+printAge(){
+console.log('Age is '+this.age);
+}
+}
+class ITCustomer extends PersonA{
+constructor(id , name, balance){
+this.id = id;
+this.name = name;
+this.balance = balance;
+//this.print=function(){}
+}
+print(){
+console.log(`Id is ${this.id} Name is ${this.name}`);
+}
+}
+undefined
