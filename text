@@ -1,0 +1,55 @@
+1. Object Literal
+var obj = {id:1001, name:'Ram',salary:9000};
+
+2. Factory Function - Not create any Type , every
+Object belongs to Object type. It contain this of window by
+default
+And code is duplicate because we create obj = {}
+And return obj, on each function.
+function createEmployee(id , name, salary){
+var obj  = {}; // Common code
+obj.id = id;
+obj.name = name;
+obj.salary = salary;
+return obj; // Common code
+}
+var ram = createEmployee(1001, "Ram",9000);
+var shyam = createEmployee(1002, "Shyam",2000);
+
+function createCustomer(id , name, balance,address){
+var obj  = {}; // Common code
+obj.id = id;
+obj.name = name;
+obj.balance = balance;
+obj.address = address;
+return obj; // Common code
+}
+var mike = createCustomer(1, "Mike",900,"USA");
+
+Type Check
+ram instanceof createEmployee;
+false
+ram instanceof Object;
+true
+mike instanceof createCustomer;
+false
+mike instanceof Object;
+true
+
+3. Function Constructor
+a) It has this which belongs to current object
+b) no duplicate code
+c) It has type
+function Employee(id , name , salary){
+//var obj  = {};
+//var this = {}; Implict
+this.id = id;
+this.name = name;
+this.salary = salary;
+//return obj;  return this; Implict
+}
+var ram = new Employee(1001, "Ram",90000);
+
+
+
+
