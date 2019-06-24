@@ -1,0 +1,26 @@
+{
+  "name": "onlineexam-2019",
+  "description": "this is my exam project",
+  "main": "",
+  "keywords": [
+    "online",
+    "exam",
+    "brain",
+    "mentors"
+  ],
+  "authors": [
+    "amit srivastava"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
