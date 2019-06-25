@@ -1,0 +1,132 @@
+class Question{
+    constructor(id, name, options,rans,score){
+         this.id = id;
+         this.name = name;
+         this.options = options;
+         this.rans = rans;
+         this.score = score;   
+    }
+}
+undefined
+var questionObject = new Question();
+undefined
+questionObject;
+Question {id: undefined, name: undefined, options: undefined, rans: undefined, score: undefined}
+for(let key in questionObject){
+console.log('Key is '+key);
+}
+VM331:2 Key is id
+VM331:2 Key is name
+VM331:2 Key is options
+VM331:2 Key is rans
+VM331:2 Key is score
+undefined
+for(let key in questionObject){
+console.log('Key is '+key+' Value '+questionObject[key]);
+}
+VM373:2 Key is id Value undefined
+VM373:2 Key is name Value undefined
+VM373:2 Key is options Value undefined
+VM373:2 Key is rans Value undefined
+VM373:2 Key is score Value undefined
+undefined
+function startCount(){
+var counter = 0;
+function autoGenerate(){
+
+counter++;
+return counter;
+}
+return autoGenerate;
+}
+var t = startCount();
+t();
+1
+t();
+2
+t();
+3
+t();
+4
+t();
+5
+t();
+6
+t();
+7
+counter;
+VM912:1 Uncaught ReferenceError: counter is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM912:1
+t.counter;
+undefined
+t = startCount();
+ƒ autoGenerate(){
+
+counter++;
+return counter;
+}
+t();
+1
+var t = (function (){
+var counter = 0;
+function autoGenerate(){
+
+counter++;
+return counter;
+}
+return autoGenerate;
+})()
+
+undefined
+t();
+1
+t();
+2
+t();
+3
+function* otp(){
+yield 1111;
+yield 3333;
+yield 4343;
+yield 2121;
+}
+undefined
+var t = otp();
+undefined
+t.next();
+{value: 1111, done: false}
+t.next();
+{value: 3333, done: false}
+t.next();
+{value: 4343, done: false}
+t.next();
+{value: 2121, done: false}
+t.next();
+{value: undefined, done: true}
+function* autoGen(){
+var counter = 1;
+while(true){
+yield counter;
+counter++;
+}
+}
+undefined
+var t = autoGen();
+undefined
+t.next();
+{value: 1, done: false}
+t.next();
+{value: 2, done: false}
+t.next();
+{value: 3, done: false}
+t.next();
+{value: 4, done: false}
+t.next();
+{value: 5, done: false}
+t.next();
+{value: 6, done: false}
+t.next();
+{value: 7, done: false}
+t.next().value;
+8
