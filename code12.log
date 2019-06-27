@@ -1,0 +1,12 @@
+questionOperations.questions;
+(7) [Question, Question, Question, Question, Question, Question, Question]0: Question {id: "100", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}1: Question {id: "101", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}2: Question {id: "102", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}3: Question {id: "103", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}4: Question {id: "104", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}5: Question {id: "105", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}6: Question {id: "106", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}length: 7__proto__: Array(0)
+typeof questionOperations.questions
+"object"
+var json = JSON.stringify(questionOperations.questions);
+undefined
+json;
+"[{"id":"100","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false},{"id":"101","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false},{"id":"102","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false},{"id":"103","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false},{"id":"104","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false},{"id":"105","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false},{"id":"106","name":"gdfgdfgdf","options":["gdfgg","gdfgg","df","gdgfd"],"rans":"a","score":"6","markForDelete":false}]"
+typeof json;
+"string"
+JSON.parse(json);
+(7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]0: {id: "100", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}1: {id: "101", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}2: {id: "102", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}3: {id: "103", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}4: {id: "104", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}5: {id: "105", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}6: {id: "106", name: "gdfgdfgdf", options: Array(4), rans: "a", score: "6", …}length: 7__proto__: Array(0)
