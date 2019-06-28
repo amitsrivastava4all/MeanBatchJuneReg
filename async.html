@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Async</title>
+    <script>
+        var counter = 1;
+        function sayHello(){
+            document.querySelector('#msg').innerText = 'Hello '+counter;
+            counter++;
+        }
+        function getBackAsyncValue(str){
+                console.log("I am Back with value ",str);
+                setTimeout()
+        }
+        function callBig(){
+            doBigCalc(getBackAsyncValue);
+          // var val =  doBigCalc();
+           //console.log("Value coming from CallBig",val);
+        }
+        function doBigCalc(fn){
+            // Async
+            setTimeout(function(){
+                 console.log("Loop Start");
+            for(let i = 1; i<=100000; i++){
+                for(let j =1;j<=100000; j++){
+                    //return "I am Done";
+                }
+            }
+            console.log("Loop Ends");
+            fn("I am Done Async");
+            //return "I am Done"
+            
+            document.querySelector('#msg2').innerText="Big Task Done";
+            },7000);  // ends
+            // Synch
+            for(let i = 1; i<=10; i++){
+                console.log("Doing something else ",i);
+            }
+           console.log("THe End");
+           
+        }
+    </script>
+</head>
+<body>
+    <p id='msg'></p>
+    <p id='msg2'></p>
+    <button onclick="sayHello()">Say Hello</button>
+    <button onclick="callBig()">Do Big Calc</button>
+</body>
+</html>
