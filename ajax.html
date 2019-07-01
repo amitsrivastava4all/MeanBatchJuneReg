@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Demo</title>
+    <script>
+    function doAjax(){
+        var id = document.querySelector('#pid').value;
+        if(id!='-1'){
+        var pr = fetch(`http://cricapi.com/api/playerStats?pid=${id}&apikey=A8zoDoPaQgefmB7KunnSuApSgL73`)
+        pr.then(response=>{
+            response.json().then(data=>{
+                console.log('data is ',data);
+            }).catch(e=>console.log('Invalid JSON ',e));
+        }).catch(err=>console.log('Server Error ',err));
+        }    
+    }
+    </script>
+</head>
+<body>
+    <select id="pid">
+        <option value="-1">Choose Player</option>
+        <option value="28081">Dhoni</option>
+        <option value="35320">Sachin</option>
+        <option value="253802">Virat</option>
+    </select>
+    <button onclick="doAjax()">Search</button>
+</body>
+</html>

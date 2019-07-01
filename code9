@@ -1,0 +1,131 @@
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+setTimeout(()=>{
+resolve("This is the Data of TimeOut");
+},6000);
+});
+undefined
+pr;
+Promise {<pending>}
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log("error is ",err));
+VM584:1 Data is  This is the Data of TimeOut
+Promise {<resolved>: undefined}__proto__: Promise[[PromiseStatus]]: "resolved"[[PromiseValue]]: undefined
+async function getPizza(){
+console.log("Pizza First Line Call ");
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+console.log("going to call timeout ");
+setTimeout(()=>{
+console.log("After 6 Sec ");
+resolve("Pizza is Ready");
+},6000);
+});
+console.log("Pizza Last Line Call ");
+return pr;
+}
+var promise = getPizza();
+console.log("Promise is ",promise);
+promise.then(data=>console.log('Rec Pizza ',data)).catch(err=>console.log("Pizza Rejected is ",err));
+VM1159:2 Pizza First Line Call 
+VM1159:5 going to call timeout 
+VM1159:11 Pizza Last Line Call 
+VM1159:15 Promise is  Promise {<pending>}
+Promise {<pending>}
+VM1159:7 After 6 Sec 
+VM1159:16 Rec Pizza  Pizza is Ready
+async function getPizza(){
+console.log("Pizza First Line Call ");
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+console.log("going to call timeout ");
+setTimeout(()=>{
+console.log("After 6 Sec ");
+resolve("Pizza is Ready");
+},6000);
+});
+console.log("Pizza Last Line Call ");
+return pr;
+}
+var promise = getPizza();
+console.log("Promise is ",promise);
+promise.then(data=>console.log('Rec Pizza ',data)).catch(err=>console.log("Pizza Rejected is ",err));
+VM1162:2 Pizza First Line Call 
+VM1162:5 going to call timeout 
+VM1162:11 Pizza Last Line Call 
+VM1162:15 Promise is  Promise {<pending>}
+Promise {<pending>}
+VM1162:7 After 6 Sec 
+VM1162:16 Rec Pizza  Pizza is Ready
+var x = "Hello";
+undefined
+x.toUpperCase().charAt(1);
+"E"
+class A{
+show(){
+console.log("A Show ");
+return this;
+}
+disp(){
+console.log("Disp ");
+return this;
+}
+output(){
+console.log("OUtput");
+
+}
+}
+undefined
+var a = new A();
+undefined
+a.show().disp().output();
+VM1455:3 A Show 
+VM1455:7 Disp 
+VM1455:11 OUtput
+undefined
+var pr1  = getPizza();
+var pr2  = getPizza();
+var pr3  = getPizza();
+Promise.all([pr1,pr2,pr3]).then(dataArr=>console.log("Data is ",dataArr)).catch(err=>console.log('Error is ',err));
+VM1162:2 Pizza First Line Call 
+VM1162:5 going to call timeout 
+VM1162:11 Pizza Last Line Call 
+VM1162:2 Pizza First Line Call 
+VM1162:5 going to call timeout 
+VM1162:11 Pizza Last Line Call 
+VM1162:2 Pizza First Line Call 
+VM1162:5 going to call timeout 
+VM1162:11 Pizza Last Line Call 
+Promise {<pending>}
+VM1162:7 After 6 Sec 
+VM1162:7 After 6 Sec 
+VM1162:7 After 6 Sec 
+VM1999:4 Data is  (3) ["Pizza is Ready", "Pizza is Ready", "Pizza is Ready"]
+async function cube(num){
+var pr = new Promise((resolve,reject)=>{
+setTimeout(()=>{
+resolve(num**3);
+},6000);
+});
+return pr;
+}
+undefined
+async function cube(num){
+console.log("Cube Call with ",num);
+var pr = new Promise((resolve,reject)=>{
+setTimeout(()=>{
+resolve(num**3);
+},6000);
+});
+return pr;
+}
+undefined
+async function total(){
+return await cube(3) + await cube(4) + await cube(5);
+}
+undefined
+total().then(data=>console.log('total is ',data)).catch(err=>console.log('Error is ',err));
+VM2307:2 Cube Call with  3
+Promise {<pending>}
+VM2307:2 Cube Call with  4
+VM2307:2 Cube Call with  5
+VM2634:1 total is  216
