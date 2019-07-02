@@ -5,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ajax Demo</title>
+    <style>
+    .size{
+        width: 200px;
+        height: 200px;
+    }
+    </style>
     <script>
+        function printImage(url){
+           var div =  document.querySelector('#result');
+           var img = document.createElement('img');
+           img.src= url;
+           img.className = 'size';
+           div.appendChild(img);
+        }
     function doAjax(){
-        var id = document.querySelector('#pid').value;
-        if(id!='-1'){
-        var pr = fetch(`http://cricapi.com/api/playerStats?pid=${id}&apikey=A8zoDoPaQgefmB7KunnSuApSgL73`)
-        pr.then(response=>{
-            response.json().then(data=>{
-                console.log('data is ',data);
-            }).catch(e=>console.log('Invalid JSON ',e));
-        }).catch(err=>console.log('Server Error ',err));
-        }    
+        var search = document.querySelector('#searchtxt').value;
+        var url = `http://api.giphy.com/v1/gifs/search?api_key=vFRSFWo6g7vJ7ZAjt3DMDolU52ORTxwH&q=${search}&limit=5`;
+        var promise = fetch(url);
+        document.querySelector('#result').innerHTML = '';
+        promise.then(response=>{
+                response.json().then(data=>{
+                    console.log('Data is ',data);
+                   
+                    for(let img of data.data){
+                        let url = img.images.original.url;
+                        printImage(url);
+                        console.log('URL is ',url);
+                    }
+                }).catch(e=>console.log('Invalid JSON ',e));
+        }).catch(err=>console.log('Network error',err));
     }
     </script>
 </head>
 <body>
-    <select id="pid">
-        <option value="-1">Choose Player</option>
-        <option value="28081">Dhoni</option>
-        <option value="35320">Sachin</option>
-        <option value="253802">Virat</option>
-    </select>
-    <button onclick="doAjax()">Search</button>
+    <input id='searchtxt' type="text" placeholder="Type to Search">
+    <button onclick="doAjax()">Search It</button>
+    <div id='result'>
+
+    </div>
 </body>
 </html>
