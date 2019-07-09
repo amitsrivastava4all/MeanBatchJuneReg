@@ -1,0 +1,24 @@
+Server ?
+We are going to write our own server
+0. Server infinite - done
+1. It is used to serve. It take request and give response. -done
+2. Give response for static web pages
+A) HTML, CSS, Images, Audio, Video, Client Side JS
+3. Response for Dynamic Results. (No JS Code on Client Side , Only JS Output is on Client Side)
+4. Routing. (Navigation)
+5. Error Handling 404
+6. Accept Request
+A) QueryString (URL ? Append) GET Request
+b) POST Request request body. (Not visible on address bar)
+Huge Data + Secure Data
+Response?
+a) Web Page
+b) JSON/ XML/ Plain Text / HTML
+c) ERROR (JSON/ XML/ Plain Text ) , Web Page
+
+
+
+
+
+
+
