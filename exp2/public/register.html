@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <script>
+    function checkUserId(){
+        var userid = document.querySelector('#userid').value;
+        var obj  = {uid:userid};
+        var pr = fetch('http://localhost:1234/checkuser',{
+            headers: {
+            'Content-Type': 'application/json'},
+            method:'POST', body:JSON.stringify(obj)});
+            pr.then(response=>
+            response.text().then(data=>{
+                console.log('Data is ',data);
+                document.querySelector('#msg').innerText=data;
+            }).catch(err=>console.log(err))
+            )
+            .catch(e=>console.log(e));
+        // var pr = fetch('http://localhost:1234/checkuser?uid='+userid,{
+        //     method:'GET'});
+        //     pr.then(response=>
+        //     response.text().then(data=>{
+        //         console.log('Data is ',data);
+        //         document.querySelector('#msg').innerText=data;
+        //     }).catch(err=>console.log(err))
+        //     )
+        //     .catch(e=>console.log(e));
+    }
+    </script>
+</head>
+<body>
+    <input id='userid' onchange="checkUserId()" type="text" placeholder="Type Userid Here">
+    <p id='msg'></p>
+</body>
+</html>
