@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="config.js"></script>
+    <script>
+    function doLogin(){
+        var uid = document.querySelector('#uid').value;
+        var password = document.querySelector('#password').value;
+        var userObject = {'userid':uid,'pwd':password};
+        console.log('CONFIG ',config.LOGIN);
+        fetch(config.BASEURL+config.LOGIN,{method:'POST',headers: {
+            'Content-Type': 'application/json'
+            
+        },body:JSON.stringify(userObject)}).then(response=>response.json().then(data=>console.log('Data is ',data)).catch(err=>console.log('JSON Error is ',err))).catch(e=>console.log('Server Error ',e));
+    }
+    </script>
+</head>
+<body>
+    <input id='uid' type="text"><input id='password' type="password">
+    <button onclick="doLogin()">Login</button>
+</body>
+</html>
