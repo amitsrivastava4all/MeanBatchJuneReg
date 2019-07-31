@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular JS Demo</title>
+    <style>
+    .red{
+        color:red;
+    }
+    .green{
+        color:green;
+    }
+    </style>
+    <script src="libs/angular.min.js"></script>
+</head>
+<body ng-app>
+    <input ng-init="price=0" type="text" ng-model="price">
+    <input ng-init="qt=0" type="text" ng-model="qt">
+    <br>
+    Amount is {{price*qt}}
+    <br>
+    <!-- Total is {{price+qt}} -->
+    <select ng-model="sortby">
+            <option value="">Select Sort</option>
+        <option value="name">By Name</option>
+        <option value="price">By Price</option>
+    </select>
+    <input type="text" placeholder="Type to Search Fruit" ng-model="fname.price">
+    <input type="checkbox" ng-model="order">
+    <ul ng-init="fruits=[{name:'Apple',price:100},{name:'Orange',price:80},{name:'Mango',price:120}]">
+        <li ng-repeat="fruit in fruits|filter:fname|orderBy:sortby:order">
+          <p ng-class="{'red':fruit.price<100,'green':fruit.price>=100}">  {{fruit.name}} {{fruit.price|currency:'&#8377;'}}</p>
+        </li>
+    </ul>
+    <input type="checkbox" ng-model="tick"> Tick
+    <p>Tick is {{tick}}</p>
+    <div ng-show="tick">
+        SHow / Hide
+    </div>
+    <input type="text" ng-model="name" placeholder="Type Name Here">
+    <p>Your Name is {{name|uppercase}}</p>
+</body>
+</html>
