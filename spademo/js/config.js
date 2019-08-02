@@ -1,0 +1,1 @@
+app.constant('PRODUCTURL','https://raw.githubusercontent.com/brainmentorspvtltd/myserverdata/master/mobiles.json');

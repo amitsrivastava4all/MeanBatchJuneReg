@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .size{
+        width:100px;
+        height:100px;
+    }
+    </style>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    
+    <script>
+    const app = angular.module('spaapp',['ngRoute']);
+    app.controller('dashboardctrl',($scope)=>{
+        $scope.userid = localStorage.userid;
+         $scope.menus = JSON.parse(localStorage.menus);
+         console.log('Menus is ',$scope.menus);
+    })
+    app.config(function($routeProvider,$locationProvider){
+        $locationProvider.hashPrefix('');
+        $routeProvider.when('/',{templateUrl:'views/home.html'})
+        .when('/about/:name/:city',{templateUrl:'views/about.html',controller:'aboutctrl'})
+        .when('/contact',{templateUrl:'views/contact.html'})
+        .when('/news',{templateUrl:'views/news.html'})
+       // .otherwise({redirectTo:'/'})
+       .otherwise({template:'<h1>OOPS You Type Something Else</h1>'})
+       // .otherwise({templateUrl:'views/error.html'});
+    });
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/aboutcontroller.js"></script>
+</head>
+<body ng-app="spaapp" ng-controller="dashboardctrl">
+    <h1>SPA Demo {{userid}}</h1>
+    <ul>
+        <li ng-repeat="menu in menus.menus">
+            <a ng-href="{{menu.url}}">{{menu.linkname}}</a>
+        </li>
+    </ul>
+     <!-- <a ng-href="#/">Home</a>
+    <a ng-href="#/about/Amit/Delhi">About</a>
+    <a ng-href="#/contact">Contact</a>
+    <a ng-href="#/news">News</a>  -->
+    <fieldset>
+        <legend>Output</legend>
+        <ng-view></ng-view>
+    </fieldset>
+
+</body>
+</html>

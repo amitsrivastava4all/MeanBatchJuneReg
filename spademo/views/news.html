@@ -1,0 +1,9 @@
+<div ng-controller="calcctrl">
+    <h1>I am News </h1>
+    <ul>
+        Mobiles are
+            <li ng-repeat="mobile in data">
+                {{mobile.id}} {{mobile.name}} {{mobile.price}} <img class="size" ng-src="{{mobile.url}}">
+            </li>
+        </ul>
+</div>
