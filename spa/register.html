@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    span{
+        color:red;
+    }
+    input.ng-invalid{
+        border-color: red;
+    }
+    input.ng-valid{
+        border-color: green;
+    }
+    </style>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script>
+    const app = angular.module('myapp',[]);
+    app.controller('ctrl',($scope)=>{
+        $scope.registerIt=(f1)=>{
+            console.log("Form is ",f1);
+            if(f1.$valid){
+                alert("Form is Valid");
+            }
+            else{
+                alert("Form is Invalid");
+            }
+        }
+    })
+    </script>
+</head>
+<body ng-app='myapp' ng-controller='ctrl'>
+    <form name="f1" ng-submit="registerIt(f1)" novalidate>
+        <input pattern="[a-z]{3,10}" ng-model="cname" name="cname" required type="text" placeholder="Type Name Here">
+        {{f1.cname}}
+        <br>
+         <span ng-show="f1.cname.$touched && f1.cname.$invalid && f1.cname.$error['required']">Customer Name is Empty</span> 
+         <br>
+        <span ng-show="f1.cname.$touched && f1.cname.$invalid && f1.cname.$error['pattern']">Customer Name Must be B/W 3 to 10 Chars</span>
+        <br>
+        
+        <input ng-model="email" name="email" required type="email" placeholder="Type Email Here">
+        <br>
+        <input name="phone" ng-model="phone" title="Phone Number Must be 10 Digit" required pattern="[0-9]{10}" type="text" placeholder="Type Phone Here">
+        <br>
+        <input type="text" pattern="[a-z]{3}[0-9]{3,6}" placeholder="Type CreditCard No Here">
+        <br>
+        <button>Register</button>
+    </form>
+</body>
+</html>

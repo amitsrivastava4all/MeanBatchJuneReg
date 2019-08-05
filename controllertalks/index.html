@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script>
+    const app = angular.module('myapp',['ngSanitize']);
+    app.factory('myfactory',()=>{
+        return {
+            x :1000
+        }
+    })
+    app.controller('parent',($scope)=>{
+        $scope.pname = '';
+            $scope.$on('rec',(eventName, args)=>{
+        $scope.pname = args.msg;
+            console.log('Rec in Parent args is ',args);
+       })
+        $scope.shareToAll=()=>{
+            $scope.$broadcast('all',{'msg':$scope.pname});
+        }
+    })
+    app.controller('child',($scope)=>{
+        $scope.cname = 'Ajay';
+    })
+    app.controller('child2',($scope)=>{
+        $scope.sendToParent=()=>{
+            $scope.$emit('rec',{msg:'Hello I am Child2'});
+        }
+       
+        $scope.message = '';
+    //    $scope.$on('all',(eventName, args)=>{
+    //     $scope.message = args.msg;
+    //         console.log('C2 args is ',args);
+    //    })
+    })
+    const list = (eventName, args)=>{
+            $scope.message2 = args.msg;
+            console.log('C3 args is ',args);
+       };
+
+    app.controller('child3',($scope)=>{
+        $scope.message2 = '';
+        $scope.$on('all',list);
+
+    })
+    app.controller('sib1',($scope,$rootScope,myfactory,$sce)=>{
+       $scope.shareIt=()=>{
+        $rootScope.mydata = $scope.data;
+        $scope.x1 = myfactory.x; 
+       }
+
+    })
+    app.controller('sib2',($scope,myfactory)=>{
+        myfactory.x = 999999;
+
+    })
+    </script>
+</head>
+<body ng-app="myapp">
+       
+    <div ng-controller="sib1">
+            <input type="checkbox" ng-init="tick=false" ng-model="tick"> Select All <br> Tick Value {{tick}}
+            <input type="checkbox" ng-checked="tick">Drinks <br>
+            <input type="checkbox" ng-checked="tick">Fast Food <br>
+            <input type="checkbox" ng-checked="tick">Dessert <br>
+        
+
+            <textarea ng-model="code" cols="30" rows="10"></textarea>
+            <br>
+            <p>Code is </p>
+             <div ng-bind-html="code">
+     
+            </div>
+        X is {{x1}}
+        <input type="text" placeholder="Type to Share" ng-model="data">
+        Data is {{data}}
+        <p ng-bind-template="Hello {{data}}">OOPS</p>
+        <button ng-click="shareIt()">Share It</button>
+    </div>
+    <div ng-controller="sib2">
+        Data is {{mydata}}
+    </div>
+    <div ng-controller="parent">
+        <button ng-click="shareToAll()">Broadcast</button>
+        <input type="text" ng-model="pname">
+        {{pname}}
+        <hr>
+        <div ng-controller='child'>
+            {{pname}}
+            <br>
+            {{cname}}
+        </div>
+        <div ng-controller='child2'>
+            <button ng-click="sendToParent()">Send to Parent</button>
+               Rec Data from Parent (Child2) 
+               {{message}}
+            </div>
+            <div ng-controller='child3'>
+                    Rec Data from Parent (Child3)
+                    {{message2}}
+                </div>
+    </div>
+    
+</body>
+</html>

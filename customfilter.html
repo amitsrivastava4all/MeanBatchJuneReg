@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<script>
+	var app = angular.module("myapp",[]);
+		app.filter("initcap",function(){
+			return function(str){
+			if(str){	
+			return str.charAt(0).toUpperCase()+str.substring(1).toLowerCase();
+			}
+			else{
+				return "";
+			}	
+			}
+		})
+	
+	</script>
+</head>
+<body ng-app="myapp">
+<input type="text"  ng-model="name">
+{{name|initcap}}  
+</body>
+</html>

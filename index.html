@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head> 
+		<title>Timestamp Marker Example</title>
+       	<script type="text/javascript" src="angular.min.js"></script>
+	</head>
+
+	<body ng-app="myapp">
+		<div ng-controller="ExampleController">
+			The request took <span ng-bind="requestTime"></span> seconds.
+		</div>
+
+		<script type="text/javascript">
+		var module = angular.module('myapp', []);
+		// Create a Factory for Interceptors
+            module.factory('timestampMarker', [function() {
+		    var timestampMarker = {
+		        request: function(config) {
+		            config.requestTimestamp = new Date().getTime();
+		            return config;
+		        },
+		        response: function(response) {
+		            response.config.responseTimestamp = new Date().getTime();
+		            return response;
+		        }
+		    };
+		    return timestampMarker;
+		}]);
+            // I Apply the Interceptors
+		module.config(['$httpProvider', function($httpProvider) {
+		    $httpProvider.interceptors.push('timestampMarker'); 
+		}]);
+
+		module.controller('ExampleController', ['$scope', '$http', function($scope, $http) {
+			$scope.requestTime = '[waiting]';
+			$http.get('https://api.github.com/users/naorye/repos').then(function(response) {
+			    var time = response.config.responseTimestamp - response.config.requestTimestamp;
+			    $scope.requestTime = (time / 1000);
+			});
+		}]);
+		</script>
+	</body>
+</html>
+			

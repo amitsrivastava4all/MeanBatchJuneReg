@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script>
+    const app = angular.module('myapp',[]);
+    app.constant('LOGINURL','http://localhost:1234/dologin');
+    app.factory('loginfactory',($http,$q,LOGINURL)=>{
+        return {
+            doLogin(userid,pwd){
+                var defer = $q.defer();
+                $http.post(LOGINURL,{'userid':userid, 'pwd':pwd}).then(data=>{
+                        defer.resolve(data);
+                        console.log('Data is ',data);
+                },err=>{
+                    console.log('Error is ',err);
+                    defer.reject(err);
+                });
+                return defer.promise;
+            }
+        }
+    })
+    app.controller('loginctrl',($scope,loginfactory)=>{
+        $scope.menus = [];
+        $scope.doLogin= ()=>{
+            var promise = loginfactory.doLogin($scope.userid, $scope.pwd);
+            promise.then(data=>{
+               $scope.menus =  data.data.links;
+               var obj = {menus:data.data.links};
+               console.log('Menus ',$scope.menus)
+               localStorage.menus =JSON.stringify(obj);
+               localStorage.userid = data.data.user;
+               location.href='dashboard.html';
+            },err=>{
+                $scope.err = err;
+            })
+        }
+    })
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="loginctrl">
+    <input ng-model="userid" type="text" placeholder="Type Userid Here">
+    <input ng-model="pwd" type="password" placeholder="Type Password Here">
+    <br>
+    <button ng-click="doLogin()">Login</button>
+</div>
+</body>
+</html>
